@@ -1,8 +1,10 @@
 from lib.models.article import Article
 class Magazine:
+    all = []
     def __init__(self, name, category):
         self.name = name
         self.category = category
+        Magazine.all.append(self)
     @property
     def name(self):
         return self._name
