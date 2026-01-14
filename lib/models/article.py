@@ -6,13 +6,13 @@ class Article:
         self.magazine = magazine
         self.title = title
         Article.all.append(self)
+
     @property
     def title(self):
         return self._title
 
     @title.setter
     def title(self, value):
-        # can't change after set once
         if hasattr(self, "_title"):
             return
 
@@ -29,6 +29,8 @@ class Article:
 
     @author.setter
     def author(self, value):
+        from lib.models.author import Author  # import here to avoid circular issues
+
         if not isinstance(value, Author):
             raise TypeError("author must be an Author instance")
         self._author = value
@@ -39,6 +41,8 @@ class Article:
 
     @magazine.setter
     def magazine(self, value):
+        from lib.models.magazine import Magazine  # import here to avoid circular issues
+
         if not isinstance(value, Magazine):
             raise TypeError("magazine must be a Magazine instance")
         self._magazine = value
