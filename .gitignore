@@ -1,3 +1,16 @@
-.venv
+# python
+__pycache__/
+*.pyc
+
+# env
+.venv/
 .env
-.pytest_cache
+
+# pytest
+.pytest_cache/
+
+# mac
+.DS_Store
+
+# editors
+.vscode/
