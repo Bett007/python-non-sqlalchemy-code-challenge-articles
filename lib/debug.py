@@ -17,4 +17,13 @@ Article(a1, m1, "More practice today")  # a1 now has 3 in m1
 Article(a2, m1, "Tech trends in Africa")
 Article(a2, m2, "Healthy habits guide")
 
+# Try in ipdb:
+# a1.articles()
+# a1.magazines()
+# a1.topic_areas()
+# m1.article_titles()
+# m1.contributors()
+# m1.contributing_authors()
+# Magazine.top_publisher()
+
 ipdb.set_trace()
