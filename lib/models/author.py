@@ -36,3 +36,13 @@ class Author:
          raise TypeError("magazine must be a Magazine instance")
         return Article(self, magazine, title)
 
+    def topic_areas(self):
+        if len(self.articles()) == 0:
+            return None
+
+        areas = []
+        for mag in self.magazines():
+            if mag.category not in areas:
+             areas.append(mag.category)
+        return areas
+
