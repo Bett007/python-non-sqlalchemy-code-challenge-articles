@@ -1,4 +1,5 @@
 from lib.models.article import Article
+from lib.models.magazine import Magazine
 class Author:
     def __init__(self, name):
         self.name = name
@@ -29,3 +30,9 @@ class Author:
             if article.magazine not in mags:
                 mags.append(article.magazine)
         return mags
+
+    def add_article(self, magazine, title):
+        if not isinstance(magazine, Magazine):
+         raise TypeError("magazine must be a Magazine instance")
+        return Article(self, magazine, title)
+
