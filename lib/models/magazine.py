@@ -36,3 +36,13 @@ class Magazine:
             if article.author not in authors:
                 authors.append(article.author)
         return authors
+    
+    def article_titles(self):
+        arts = self.articles()
+        if len(arts) == 0:
+            return None
+        
+        titles = []
+        for a in arts:
+            titles.append(a.title)
+        return titles
