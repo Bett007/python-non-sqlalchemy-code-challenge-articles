@@ -46,3 +46,27 @@ class Magazine:
         for a in arts:
             titles.append(a.title)
         return titles
+    
+    def contributing_authors(self):
+        arts = self.articles()
+        if len(arts) == 0:
+            return None
+
+        counts = {}
+        for a in arts:
+            author = a.author
+            if author in counts:
+                counts[author] += 1
+            else:
+                counts[author] = 1
+
+        result = []
+        for author, count in counts.items():
+            if count > 2:
+                result.append(author)
+
+        if len(result) == 0:
+            return None
+
+        return result
+
