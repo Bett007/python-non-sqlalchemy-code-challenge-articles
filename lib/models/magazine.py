@@ -72,3 +72,23 @@ class Magazine:
 
         return result
 
+    def top_publisher(cls):
+        if len(Article.all) == 0:
+            return None
+
+        counts = {}
+        for article in Article.all:
+            mag = article.magazine
+            if mag in counts:
+                counts[mag] += 1
+            else:
+                counts[mag] = 1
+
+        top_mag = None
+        top_count = 0
+        for mag, count in counts.items():
+            if count > top_count:
+                top_mag = mag
+                top_count = count
+
+        return top_mag
