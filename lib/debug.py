@@ -1,13 +1,21 @@
-#!/usr/bin/env python3
-import ipdb;
+from lib.models.author import Author
+from lib.models.magazine import Magazine
+from lib.models.article import Article
 
-from classes.many_to_many import Article
-from classes.many_to_many import Author
-from classes.many_to_many import Magazine
+import ipdb
 
-if __name__ == '__main__':
-    print("HELLO! :) let's debug :vibing_potato:")
+# create some sample objects to test quickly
+a1 = Author("Brian")
+a2 = Author("Anne")
 
+m1 = Magazine("TechDaily", "Tech")
+m2 = Magazine("HealthNow", "Health")
 
-    # don't remove this line, it's for debugging!
-    ipdb.set_trace()
+Article(a1, m1, "Python is really cool")
+Article(a1, m1, "Learning SQL basics")
+Article(a1, m1, "More practice today")
+
+Article(a2, m1, "Tech trends in Africa")
+Article(a2, m2, "Healthy habits guide")
+
+ipdb.set_trace()
