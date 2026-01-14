@@ -29,3 +29,10 @@ class Magazine:
         
     def articles(self):
         return [a for a in Article.all if a.magazine == self]
+    
+    def contributors(self):
+    authors = []
+    for article in self.articles():
+        if article.author not in authors:
+            authors.append(article.author)
+    return authors
