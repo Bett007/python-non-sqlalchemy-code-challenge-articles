@@ -1,3 +1,4 @@
+from lib.models.article import Article
 class Magazine:
     def __init__(self, name, category):
         self.name = name
@@ -25,3 +26,6 @@ class Magazine:
         if len(value) == 0:
             raise ValueError("category must be longer than 0 characters")
         self._category = value
+        
+    def articles(self):
+        return [a for a in Article.all if a.magazine == self]

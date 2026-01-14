@@ -1,3 +1,4 @@
+from lib.models.article import Article
 class Author:
     def __init__(self, name):
         self.name = name
@@ -18,3 +19,6 @@ class Author:
             raise ValueError("name must be longer than 0 characters")
 
         self._name = value
+    
+    def articles(self):
+        return [a for a in Article.all if a.author == self]
